@@ -30,18 +30,10 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = score;
     }
-  } else if (guess < hiddenNumber) {
+  } else if (guess !== hiddenNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "Number is too low!";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "You lost the game :( ";
-      document.querySelector(".score").textContent = 0;
-    }
-  } else {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "Number is too high!";
+      document.querySelector(".message").textContent =
+        guess > hiddenNumber ? "Number is too high!" : "Number is too low!";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
